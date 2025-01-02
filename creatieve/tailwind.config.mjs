@@ -23,7 +23,7 @@ export default {
         sans: ['"Montserrat"', 'sans-serif'],
         base: ['"Unbounded"', 'sans-serif'],
         attention: ['"Dela Gothic One"', 'sans-serif'],
-        ital: ['"Shantell Sans', 'sans-serif']
+        ital: ['"Shantell Sans"', 'sans-serif']
       },
       boxShadow: {
         'small': '0 0 4 rgba(0, 0, 0, 0.25)',
