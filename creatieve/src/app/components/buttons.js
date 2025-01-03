@@ -12,9 +12,16 @@ export default function OrderButton() {
     )
 }
 
-export function BrightButton ({text, action}) {
+export function BrightButton ({text, action, link}) {
+    if (link) {
+        return(
+            <a href={link} className="w-fit text-nowrap px-10 py-4 rounded-[10px] bg-bright text-white font-base text-xl">
+                {text}
+            </a>
+        )
+    }
     return(
-        <button onClick={action} className="px-10 py-4 rounded-[10px] bg-bright text-white font-base text-xl">
+        <button type="submit" onSubmit={action} className="w-fit px-10 py-4 rounded-[10px] bg-bright text-white font-base text-xl">
             {text}
         </button>
     )
