@@ -11,3 +11,11 @@ export default function OrderButton() {
         </button>
     )
 }
+
+export function BrightButton ({text, action}) {
+    return(
+        <button onClick={action} className="px-10 py-4 rounded-[10px] bg-bright text-white font-base text-xl">
+            {text}
+        </button>
+    )
+}

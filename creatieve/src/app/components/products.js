@@ -93,7 +93,7 @@ export default function Products() {
     return(
         <section className="relative z-40 bg-base-color py-14">
             <div className="wrapper flex flex-col gap-y-14 items-center">
-                <h4 className="text-white font-base text-4xl text-center">Что мы предлагаем?</h4>
+                <h4 className="text-white font-base text-4xl text-center font-bold">Что мы предлагаем?</h4>
                 <ul className="grid grid-cols-6 w-full gap-10 justify-center items-center">
                     {products.map(product => <ProductBlock product={product} key={product.id}/>)}
                 </ul>

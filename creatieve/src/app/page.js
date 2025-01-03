@@ -3,6 +3,7 @@ import About from "./components/about";
 import Products from "./components/products";
 import WhyWe from "./components/whywe";
 import Portfolio from "./components/portfolio";
+import Contact from "./components/contact";
 
 export default function Home() {
   return (
@@ -12,6 +13,7 @@ export default function Home() {
       <Products />
       <WhyWe />
       <Portfolio />
+      <Contact />
     </>
   );
 }
