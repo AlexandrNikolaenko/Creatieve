@@ -46,6 +46,10 @@
   src: url('../../fonts/shantell-sans-v10-cyrillic_latin-700italic.woff2') format('woff2');
 }
 
+*::-webkit-scrollbar{
+  display: none;
+}
+
 .wrapper {
   max-width: 1360px;
   margin: 0 20px;
