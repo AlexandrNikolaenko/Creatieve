@@ -1,12 +1,13 @@
 'use client'
 
-export default function OrderButton() {
-    function scrollToForm(){
-        return
-    }
-    
+import scrollToBlock, {sectionsId} from "./optData"
+
+export default function OrderButton() {    
     return (
-        <button onClick={scrollToForm} className="text-center w-min py-4 px-10 rounded-[10px] font-base text-2xl text-white transition-all duration-300 bg-bright active:bg-active-bright focus:bg-active-bright hover:bg-active-bright">
+        <button onClick={() => {
+                let blockId = sectionsId.filter(section => section.name == 'contact')[0].id
+                scrollToBlock(blockId)
+            }} className="text-center w-min py-4 px-10 rounded-[10px] font-base text-2xl text-white transition-all duration-300 bg-bright active:bg-active-bright focus:bg-active-bright hover:bg-active-bright">
             Заказать
         </button>
     )

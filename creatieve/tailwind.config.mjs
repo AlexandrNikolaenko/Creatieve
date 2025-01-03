@@ -26,10 +26,10 @@ export default {
         ital: ['"Shantell Sans"', 'sans-serif']
       },
       boxShadow: {
-        'small': '0 0 4 rgba(0, 0, 0, 0.25)',
-        'base': '0 0 8 rgba(0, 0, 0, 0.25)',
-        'section': '0 -8 10 rgba(0, 0, 0, 0.1)',
-        'inner': '0 0 10 rgba(0, 0, 0, 0.1)'
+        'small': '0 0 4px rgba(0, 0, 0, 0.25)',
+        'base': '0 0 8px rgba(0, 0, 0, 0.25)',
+        'section': '0 -8px 10px rgba(0, 0, 0, 0.1)',
+        'inner': 'inset 0 0 10px rgba(0, 0, 0, 0.1)'
       }
     },
   },

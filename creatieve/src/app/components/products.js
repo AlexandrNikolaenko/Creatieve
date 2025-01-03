@@ -91,26 +91,19 @@ export default function Products() {
     let [showId, setShowId] = useState(1);
 
     return(
-        <section className="relative z-40 bg-base-color py-14">
+        <section id="2" className="relative z-40 bg-base-color py-14">
             <div className="wrapper flex flex-col gap-y-14 items-center">
                 <h4 className="text-white font-base text-4xl text-center font-bold">Что мы предлагаем?</h4>
                 <ul className="grid grid-cols-6 w-full gap-10 justify-center items-center">
                     {products.map(product => <ProductBlock product={product} key={product.id}/>)}
                 </ul>
                 <OrderButton />
-                <div className="flex flex-col w-full gap-y-5 rounded-[20px] shadow-inner p-5">
+                <div id="block" className="flex flex-col w-full gap-y-5 rounded-[20px] shadow-inner p-5">
                     <div className="flex justify-between px-5">
                         <ul className="flex flex-col gap-3 h-[45px] overflow-hidden">
                             {products.map(product => <ProductTitle title={product.name} key={product.id}/>)}
                         </ul>
-                        <div className="overflow-hidden rounded-[10px]">
-                            <button className="px-5 py-2.5">
-                                <Image alt='turn last' src={'/chevron-left.svg'} width={24} height={24}/>
-                            </button>
-                            <button>
-                                <Image alt='turn next' src={'/chevron-right.svg'} width={24} height={24}/>
-                            </button>
-                        </div>
+                        <SlideButton />
                     </div>  
                     <ul className="flex gap-x-10 w-full overflow-hidden">
                         {products.map(product => <DescProductBlock product={product} key={product.id}/>)}
@@ -119,6 +112,22 @@ export default function Products() {
                 </div>
             </div>
         </section>
+    )
+}
+
+function SlideButton() {
+    return (
+        // <div className={`overflow-hidden rounded-[10px] bg-active-base ${
+        //     dir == null ? '' : dir == 'right' ? 'bg-gradient-to-r from-active-base to-dark-base' : 'bg-gradient-to-r from-dark-base to-active-base'
+        // }`}>
+        <div className={`slideButton overflow-hidden rounded-[10px] bg-active-base`}>
+            <button className="px-5 py-2.5 transition-all duration-300 bg-gradient-to-l from-transparent from-0% to-transparent hover:to-dark-base to-100%">
+                <Image alt='turn last' src={'/chevron-left.svg'} width={24} height={24}/>
+            </button>
+            <button className="px-5 py-2.5 transition-all duration-300 bg-gradient-to-r from-transparent from-0% to-transparent hover:to-dark-base to-100%">
+                <Image alt='turn next' src={'/chevron-right.svg'} width={24} height={24}/>
+            </button>
+        </div>
     )
 }
 
@@ -131,8 +140,9 @@ function ProductTitle({title}){
 }
 
 function DescProductBlock({product}) {
+
     return (
-        <li className="flex gap-x-12">
+        <li className={`flex gap-x-12 w-full`}>
             <div className="flex flex-col gap-y-[30px]">
                 <p className="text-white font-base text-base">стоимость услуги от <span className="font-ital text-xl italic">{product.cost}</span></p>
                 <p className="text-white font-base text-base">срок реализации от <span className="font-ital text-xl italic">{product.time} дней</span></p>

@@ -62,3 +62,23 @@
   }
 }
 
+/* .slideButton{
+  background-image: linear-gradient(to right, var(--tw-gradient-stops));
+  --tw-gradient-from: #9146E1 var(--tw-gradient-from-position);
+  --tw-gradient-to: #9146E1 var(--tw-gradient-to-position);
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
+} 
+
+.slideButton:first-child:active{
+  background-image: linear-gradient(to left, var(--tw-gradient-stops));
+  --tw-gradient-to: #9146E1 var(--tw-gradient-to-position);
+  --tw-gradient-from: #7D34CC var(--tw-gradient-from-position);
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
+}
+
+.slideButton:last-child:hover{
+  background-image: linear-gradient(to right, var(--tw-gradient-stops));
+  --tw-gradient-from: #9146E1 var(--tw-gradient-from-position);
+  --tw-gradient-to: #7D34CC var(--tw-gradient-to-position);
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to)
+} */
