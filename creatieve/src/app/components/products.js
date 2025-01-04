@@ -12,6 +12,7 @@ let products = [
         time: '5',
         description: 'Landing page — это одностраничный веб-сайт, созданный с целью привлечения клиентов. Обычно содержит информацию о продукте и призыв к действию.',
         fullDesc: 'Лендинг пэйдж (или целевая страница) — это веб-страница, созданная с целью привлечения внимания посетителей и побуждения их к конкретному действию, например, покупке товара, подписке на рассылку или заполнению формы. Обычно лендинг пэйдж имеет удерживающий внимание дизайн и сосредоточен на одной конкретной цели, что позволяет снизить количество отвлекающих факторов и повысить конверсию.',
+        activeBg: 'landingBlock',
         examples: [
             {
                 id: 1,
@@ -21,7 +22,8 @@ let products = [
         add: [
             {
                 id: 1,
-                service: '' 
+                service: '',
+                price: ''
             }
         ]
     },
@@ -32,6 +34,7 @@ let products = [
         time: '5',
         description: 'Корпоративный сайт — это веб-ресурс, представляющий компанию, её продукты. Он служит для информирования посетителей о деятельности компании. Корпоративный сайт помогает укрепить имидж и улучшить коммуникацию с аудиторией.',
         fullDesc: '',
+        activeBg: 'siteBlock',
         examples: [
             {
                 id: 1,
@@ -41,7 +44,8 @@ let products = [
         add: [
             {
                 id: 1,
-                service: '' 
+                service: '',
+                price: ''
             }
         ]
     },
@@ -52,6 +56,7 @@ let products = [
         time: '7',
         description: 'Веб-приложение — это программа, которая работает в веб-браузере и предоставляет пользователям определенные функции через интернет. Оно доступно с любого устройства с подключением к сети и не требует установки на устройтсве.',
         fullDesc: '',
+        activeBg: 'appBlock',
         examples: [
             {
                 id: 1,
@@ -61,7 +66,8 @@ let products = [
         add: [
             {
                 id: 1,
-                service: '' 
+                service: '',
+                price: ''
             }
         ]
     },
@@ -72,6 +78,7 @@ let products = [
         time: '4',
         description: 'Сайт-визитка — одностраничный веб-сайт, представляющий компанию. Содержит основную информацию о деятельности,  контактные данные, часто портфолио или отзывы. Его цель — быстро и эффективно донести информацию до потенциальных клиентов и облегчить связь с ними.',
         fullDesc: '',
+        activeBg: 'visitBlock',
         examples: [
             {
                 id: 1,
@@ -81,7 +88,8 @@ let products = [
         add: [
             {
                 id: 1,
-                service: '' 
+                service: '',
+                price: ''
             }
         ]
     }
@@ -91,7 +99,7 @@ export default function Products() {
     let [showId, setShowId] = useState(1);
 
     return(
-        <section id="2" className="relative z-40 bg-base-color py-14">
+        <section id="2" className="shadow-section relative z-40 bg-base-color py-14">
             <div className="wrapper flex flex-col gap-y-14 items-center">
                 <h4 className="text-white font-base text-4xl text-center font-bold">Что мы предлагаем?</h4>
                 <ul className="grid grid-cols-6 w-full gap-10 justify-center items-center">
@@ -117,14 +125,11 @@ export default function Products() {
 
 function SlideButton() {
     return (
-        // <div className={`overflow-hidden rounded-[10px] bg-active-base ${
-        //     dir == null ? '' : dir == 'right' ? 'bg-gradient-to-r from-active-base to-dark-base' : 'bg-gradient-to-r from-dark-base to-active-base'
-        // }`}>
         <div className={`slideButton overflow-hidden rounded-[10px] bg-active-base`}>
-            <button className="px-5 py-2.5 transition-all duration-300 bg-gradient-to-l from-transparent from-0% to-transparent hover:to-dark-base to-100%">
+            <button className="px-5 py-2.5 transition-all duration-300 bg-active-base hover:bg-dark-base">
                 <Image alt='turn last' src={'/chevron-left.svg'} width={24} height={24}/>
             </button>
-            <button className="px-5 py-2.5 transition-all duration-300 bg-gradient-to-r from-transparent from-0% to-transparent hover:to-dark-base to-100%">
+            <button className="px-5 py-2.5 transition-all duration-300 bg-active-base hover:bg-dark-base">
                 <Image alt='turn next' src={'/chevron-right.svg'} width={24} height={24}/>
             </button>
         </div>
@@ -158,7 +163,7 @@ function DescProductBlock({product}) {
                 <p className="text-white text-base">{product.fullDesc}</p>
                 <h5 className="text-white font-ital text-2xl italic">Дополнительно</h5>
                 <ul className="leading-relaxed">
-                    {product.add.map(service => <li key={service.id} className="text-white list-disc">{service.service}</li>)}
+                    {product.add.map(service => <li key={service.id} className="text-white list-disc">{service.service} <span>{service.price}</span></li>)}
                 </ul>
             </div>
         </li>
@@ -167,11 +172,11 @@ function DescProductBlock({product}) {
 
 function ProductBlock({product}) {
     return (
-        <li className={`flex flex-col h-full gap-y-6 cursor-pointer bg-white p-8 shadow-base rounded-[10px] ${product.id == 4 ? 'col-start-3 col-span-2' : 'col-span-2'}`}>
-            <h4 className="text-active-base font-base text-2xl font-bold">{product.name}</h4>
-            <p className="text-dark font-base text-base">от <span className="text-bright text-xl">{product.cost}</span></p>
-            <p className="text-dark font-base text-base">срок реализации от <span className="text-bright text-xl">{product.time} дней</span></p>
-            <p className="text-dark text-sm">{product.description}</p>
+        <li className={`productBlock flex flex-col h-full gap-y-6  transition-all *:hover:text-white bg-white ${product.activeBg} cursor-pointer  p-8 shadow-base rounded-[10px] ${product.id == 4 ? 'col-start-3 col-span-2' : 'col-span-2'}`}>
+            <h4 className="text-active-base font-base text-2xl font-bold transition-all">{product.name}</h4>
+            <p className="text-dark font-base text-base transition-all">от <span className="text-inherit text-xl">{product.cost}</span></p>
+            <p className="text-dark font-base text-base transition-all">срок реализации от <span className="text-inherit text-xl">{product.time} дней</span></p>
+            <p className="text-dark text-sm transition-all">{product.description}</p>
         </li>
     )
 }

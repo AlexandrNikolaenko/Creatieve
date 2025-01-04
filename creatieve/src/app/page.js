@@ -4,6 +4,7 @@ import Products from "./components/products";
 import WhyWe from "./components/whywe";
 import Portfolio from "./components/portfolio";
 import Contact from "./components/contact";
+import Footer from "./components/footer";
 
 export default function Home() {
   return (
@@ -14,6 +15,7 @@ export default function Home() {
       <WhyWe />
       <Portfolio />
       <Contact />
+      <Footer />
     </>
   );
 }

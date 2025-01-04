@@ -19,7 +19,7 @@ export default function About() {
             <button onClick={() => {
                     let blockId = sectionsId.filter(section => section.name == 'portfolio')[0].id
                     scrollToBlock(blockId)
-                }} className="flex gap-x-3 items-center py-2.5 px-4 rounded-base transition-all duration-300 bg-base-color active:bg-active-base hover:bg-active-base focus:bg-active-base">
+                }} className="shadow-small flex gap-x-3 items-center py-2.5 px-4 rounded-base transition-all duration-300 bg-base-color hover:bg-active-base focus:bg-active-base">
                 <span className="text-white font-normal text-2xl">Наши работы</span>
                 <Image alt="To portfolio" src={'/arrow-down.svg'} width={24} height={24}/>
             </button>

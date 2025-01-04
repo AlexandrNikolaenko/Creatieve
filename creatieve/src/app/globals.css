@@ -50,6 +50,10 @@
   display: none;
 }
 
+html::-webkit-scrollbar, body::-webkit-scrollbar{
+  display: initial;
+}
+
 .wrapper {
   max-width: 1360px;
   margin: 0 20px;
@@ -63,22 +67,49 @@
 }
 
 /* .slideButton{
-  background-image: linear-gradient(to right, var(--tw-gradient-stops));
-  --tw-gradient-from: #9146E1 var(--tw-gradient-from-position);
-  --tw-gradient-to: #9146E1 var(--tw-gradient-to-position);
-  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
+  background-color: #9146E1;
 } 
 
-.slideButton:first-child:active{
-  background-image: linear-gradient(to left, var(--tw-gradient-stops));
-  --tw-gradient-to: #9146E1 var(--tw-gradient-to-position);
+.slideButton:hover:first-child{
+  background-image: linear-gradient(to right, var(--tw-gradient-stops));
   --tw-gradient-from: #7D34CC var(--tw-gradient-from-position);
+  --tw-gradient-to: #9146E1 var(--tw-gradient-to-position);
   --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
 }
 
-.slideButton:last-child:hover{
+.slideButton:hover:last-child{
   background-image: linear-gradient(to right, var(--tw-gradient-stops));
   --tw-gradient-from: #9146E1 var(--tw-gradient-from-position);
   --tw-gradient-to: #7D34CC var(--tw-gradient-to-position);
   --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to)
 } */
+
+.productBlock, .landingBlock, .siteBlock, .visitBlock, .appBlock{
+  transition: all .15;
+}
+
+.landingBlock:hover{
+  --tw-gradient-from: #2AC900 var(--tw-gradient-from-position);
+  --tw-gradient-to: #02D6EE var(--tw-gradient-to-position);
+}
+
+.siteBlock:hover{
+  --tw-gradient-from: #0011FF var(--tw-gradient-from-position);
+  --tw-gradient-to: #07E6FF var(--tw-gradient-to-position);
+}
+
+.appBlock:hover{
+  --tw-gradient-from: #FF0101 var(--tw-gradient-from-position);
+  --tw-gradient-to: #F6BC19 var(--tw-gradient-to-position);
+}
+
+.visitBlock:hover{
+  --tw-gradient-from: #680DE7 var(--tw-gradient-from-position);
+  --tw-gradient-to: #F91ABA var(--tw-gradient-to-position);
+}
+
+.productBlock:hover{
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
+  background-image: linear-gradient(to bottom right, var(--tw-gradient-stops));
+  transition: all .15;
+}

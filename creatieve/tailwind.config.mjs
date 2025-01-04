@@ -15,6 +15,14 @@ export default {
         'base-color': '#AF63FF',
         'active-base': '#9146E1',
         'dark-base': '#7D34CC',
+        'landingfrom': '#2AC900',
+        'landingto': '#02D6EE',
+        'sitefrom': '#0011FF',
+        'siteto': '#07E6FF',
+        'appfrom': '#FF0101',
+        'appto': '#F6BC19',
+        'visitfrom': '#680DE7',
+        'visitto': '#F91ABA',
       },
       borderRadius: {
         base: '10px'

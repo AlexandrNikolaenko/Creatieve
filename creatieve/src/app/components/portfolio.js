@@ -3,7 +3,7 @@ let works = [
     {
         id: 1,
         title: 'OlimpEducation',
-        desc: 'Это веб-приложение помогает школьникам готовиться к олимпиада, предоставляя задания по определенным выбранным критериям.',
+        desc: 'Это веб-приложение помогает школьникам готовиться к олимпиадам, предоставляя задания по определенным выбранным критериям.',
         urlImgDesk: '/Desktop - 1.jpg',
         urlImgMob: '/Android Large - 1.jpg',
         isReverse: false
@@ -19,7 +19,7 @@ let works = [
     {
         id: 3,
         title: 'Neotechnica',
-        desc: 'Этот кооперативный сайт находится в процессе разработки на смену устаревшей версии сайт с сохранением стилистики, цветов и логотипов компании',
+        desc: 'Этот корпоративный сайт находится в процессе разработки на смену устаревшей версии сайта с сохранением стилистики, цветов и логотипов компании',
         urlImgDesk: '/Main page 2 variant.jpg',
         urlImgMob: '/Android Large - 1.jpg',
         isReverse: false
@@ -55,7 +55,7 @@ function Work({work}) {
             </div>
             <div className={`flex flex-col gap-7 ${work.isReverse ? 'pr-10' : 'pl-10'}`}>
                 <h5 className="font-base text-white text-2xl font-bold">{work.title}</h5>
-                <p className="text-white text-2xl">{work.desc}</p>
+                <p className="text-white text-xl">{work.desc}</p>
             </div>
         </li>
     )

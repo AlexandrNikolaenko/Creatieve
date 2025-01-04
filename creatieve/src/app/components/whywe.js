@@ -2,7 +2,7 @@ let reasons = [
     {
         id: 1,
         title: 'Разработка уникального продукта',
-        desc: 'Никаких шаблонов! Только уникальный дизайн и разработка с нуля. Проект будет разработан строго под ваши.'
+        desc: 'Никаких шаблонов! Только уникальный дизайн и разработка с нуля. Проект будет разработан строго под ваши задачи.'
     },
     {
         id: 2,
@@ -41,7 +41,7 @@ let stages = [
 
 export default function WhyWe() {
     return(
-        <section className="relative z-40 bg-active-base py-14">
+        <section className="shadow-section relative z-40 bg-active-base py-14">
             <div className="flex flex-col gap-14 wrapper items-center">
                 <h3 className="uppercase font-base text-4xl font-bold text-white">Почему <span className="text-bright">мы?</span></h3>
                 <div className="grid grid-cols-3 gap-10">
@@ -59,7 +59,7 @@ export default function WhyWe() {
 
 function ReasonBlock({reason}) {
     return(
-        <div className="p-[25px] bg-dark-base flex flex-col gap-y-10 rounded-[10px]">
+        <div className="p-[25px] bg-dark-base flex flex-col gap-y-10 rounded-[10px] shadow-base">
             <div className="flex items-start gap-2">
                 <span className="text-white text-3xl font-base">{reason.id}.</span>
                 <h4 className="text-white text-3xl font-base">{reason.title}</h4>
@@ -75,7 +75,7 @@ function Stage({stage}) {
             <div className="flex justify-center items-center w-[70px] h-[70px] rounded-full bg-bright">
                 <span className="text-white font-base text-4xl">{stage.id}</span>
             </div>
-            <p className="text-white font-base text-2xl">{stage.text}</p>
+            <p className="text-white font-base text-xl">{stage.text}</p>
         </li>
     )
 }
