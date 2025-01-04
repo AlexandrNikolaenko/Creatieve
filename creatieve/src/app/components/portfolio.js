@@ -32,7 +32,7 @@ export default function Portfolio() {
             <div className="flex flex-col gap-y-10 wrapper items-center">
                 <div className="flex flex-col gap-y-5 items-center">
                     <h3 className="text-white font-base text-4xl font-bold"><span className="text-bright">О качестве</span> наши <span className="text-bright">работы</span> говорят за нас</h3>
-                    <p className="text-2xl text-white">представляем вам несколько наших работ</p>
+                    <p className="text-2xl text-white">представляем вам несколько наших проектов</p>
                 </div>
                 <ul className="flex flex-col gap-y-14">
                     {works.map(work => <Work key={work.id} work={work}/>)}

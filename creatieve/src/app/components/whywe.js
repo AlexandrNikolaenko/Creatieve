@@ -49,7 +49,7 @@ export default function WhyWe() {
                 </div>
                 <h4 className="text-white text-3xl font-base">Прозрачный процесс разработки</h4>
                 <ul className="relative flex flex-col gap-[30px] items-start">
-                    <div className="z-20 absolute"></div>
+                    <div className="z-20 absolute border-dashed border-[3px] h-full left-[33px] border-bright"></div>
                     {stages.map(stage => <Stage key={stage.id} stage={stage}/>)}
                 </ul>
             </div>

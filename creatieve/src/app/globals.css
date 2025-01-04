@@ -85,31 +85,34 @@ html::-webkit-scrollbar, body::-webkit-scrollbar{
 } */
 
 .productBlock, .landingBlock, .siteBlock, .visitBlock, .appBlock{
-  transition: all .15;
+  background: white;
+  transition-property: all;
+  transition-duration: .3s;
 }
 
-.landingBlock:hover{
+.landingBlock:hover, .landingBlock:active{
   --tw-gradient-from: #2AC900 var(--tw-gradient-from-position);
   --tw-gradient-to: #02D6EE var(--tw-gradient-to-position);
 }
 
-.siteBlock:hover{
+.siteBlock:hover, .siteBlock:active{
   --tw-gradient-from: #0011FF var(--tw-gradient-from-position);
   --tw-gradient-to: #07E6FF var(--tw-gradient-to-position);
 }
 
-.appBlock:hover{
+.appBlock:hover,.appBlock:active{
   --tw-gradient-from: #FF0101 var(--tw-gradient-from-position);
   --tw-gradient-to: #F6BC19 var(--tw-gradient-to-position);
 }
 
-.visitBlock:hover{
+.visitBlock:hover, .visitBlock:active{
   --tw-gradient-from: #680DE7 var(--tw-gradient-from-position);
   --tw-gradient-to: #F91ABA var(--tw-gradient-to-position);
 }
 
-.productBlock:hover{
+.productBlock:hover, .productBlock:active{
   --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
-  background-image: linear-gradient(to bottom right, var(--tw-gradient-stops));
-  transition: all .15;
+  background: linear-gradient(to bottom right, var(--tw-gradient-stops));
+  transition-property: all;
+  transition-duration: .3s;
 }

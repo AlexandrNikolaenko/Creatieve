@@ -10,7 +10,7 @@ export default {
     extend: {
       colors: {
         bright: '#FF7105',
-        'active-bright': '#FF7105',
+        'active-bright': '#DE6000',
         dark: '#191919',
         'base-color': '#AF63FF',
         'active-base': '#9146E1',

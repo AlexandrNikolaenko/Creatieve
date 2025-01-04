@@ -1,42 +1,48 @@
 'use client'
 import Image from "next/image";
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import scrollToBlock from "./optData";
 import Link from "next/link";
 
 export default function Header() {
     let [isHidden, setIsHidden] = useState(false);
+    let [isShadow, setIsShadow] = useState(window.scrollY != 0);
     let position = useRef(window.scrollY);
-    let lastTimeout = useRef(null);
+    let lastTimeout = useRef([]);
     
-    window.onscroll = function() {
-        if (lastTimeout.current) clearTimeout(lastTimeout.current)
-        let timeout = setTimeout(() => {setIsHidden(true), console.log(timeout)}, 2000);
-        if (position.current >= window.scrollY) {
-            clearTimeout(timeout);
-            setIsHidden(false);
-            if (window.scrollY != 0) timeout = setTimeout(() => {setIsHidden(true), console.log(timeout)}, 2000);
+    useEffect(() => {
+        window.onscroll = function() {
+            let timeout = setTimeout(() => setIsHidden(true), 2000);
+            if (position.current >= window.scrollY) {
+                lastTimeout.current.forEach(time => clearTimeout(time));
+                lastTimeout.current = []
+                clearTimeout(timeout);
+                setIsHidden(false);
+                if (window.scrollY != 0) timeout = setTimeout(() => setIsHidden(true), 2000);
+            }
+            if (window.scrollY != 0) setIsShadow(true);
+            else setIsShadow(false);
+            lastTimeout.current = lastTimeout.current.concat([timeout]);
+            position.current = window.scrollY; 
         }
-        lastTimeout.current = timeout;
-        console.log(lastTimeout.current);
-        position.current = window.scrollY; 
-    }
+    })
 
-    window.onmousemove = function (event) {
-        let header = document.getElementsByTagName('header')[0]
-        if (event.clientY < header.getBoundingClientRect().height && isHidden) {
-            setIsHidden(false);
-            header.addEventListener('mouseleave', function() {
-                if (window.scrollY != 0) {
-                    setIsHidden(true);
-                }
-                header.removeEventListener('mouseleave', () => {return});
-            })
+    useEffect(() => {
+        window.onmousemove = function (event) {
+            let header = document.getElementsByTagName('header')[0];
+            if (event.clientY < header.getBoundingClientRect().height && isHidden) {
+                setIsHidden(false);
+                header.addEventListener('mouseleave', function() {
+                    if (window.scrollY != 0) setIsHidden(true);
+                    header.removeEventListener('mouseleave', () => {return});
+                })
+            }
         }
-    }
+    })
+    
 
     return (
-        <header className={`fixed z-50 w-full transition-all duration-1000 ${isHidden && '-translate-y-full'} bg-white shadow-base`}>
+        <header className={`fixed z-50 w-full transition-all duration-1000 ${isHidden && '-translate-y-full'} bg-white ${isShadow && 'shadow-base'}`}>
             <div className="flex justify-between wrapper flex-row items-center">
                 <Link href="/#" className="flex gap-x-2 flex-row h-full items-center">
                     <Image alt="Logo" src={'/Logo.svg'} width={15} height={35.5}/>
