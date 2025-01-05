@@ -13,16 +13,16 @@ export default function OrderButton() {
     )
 }
 
-export function BrightButton ({text, action, link}) {
+export function BrightButton ({text, link}) {
     if (link) {
         return(
-            <a href={link} className="w-fit text-nowrap px-10 py-4 rounded-[10px] transition-all duration-300 bg-bright hover:bg-active-bright active:bg-active-bright focus:bg-active-bright text-white font-base text-xl shadow-small">
+            <a href={link} className="w-fit text-nowrap px-10 py-4 rounded-[10px] transition-all duration-300 bg-bright hover:bg-active-bright active:bg-active-bright text-white font-base text-xl shadow-small">
                 {text}
             </a>
         )
     }
     return(
-        <button type="submit" onSubmit={action} className="w-fit px-10 py-4 rounded-[10px] transition-all duration-300 bg-bright hover:bg-active-bright active:bg-active-bright focus:bg-active-bright text-white font-base text-xl shadow-small">
+        <button type="submit" className="w-fit px-10 py-4 rounded-[10px] transition-all duration-300 bg-bright hover:bg-active-bright active:bg-active-bright text-white font-base text-xl shadow-small">
             {text}
         </button>
     )

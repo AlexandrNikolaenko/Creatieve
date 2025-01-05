@@ -46,6 +46,14 @@
   src: url('../../fonts/shantell-sans-v10-cyrillic_latin-700italic.woff2') format('woff2');
 }
 
+input{
+  background-color: white;
+}
+
+input, textarea, select {
+  appearance: none;
+}
+
 *::-webkit-scrollbar{
   display: none;
 }
