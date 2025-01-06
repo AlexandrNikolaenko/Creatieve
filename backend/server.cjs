@@ -1,9 +1,17 @@
 const express = require('express');
 const cors = require('cors');
 const bodyParser = require('body-parser');
+const nodemailer = require("nodemailer");
 
-const host = 'localhost';
-const id = 'localhost';
+const transporter = nodemailer.createTransport({
+    host: 'smtp.gmail.com',
+    port: 465,
+    secure: true, // true for port 465, false for other ports
+    auth: {
+      user: "alexnikol092004@gmail.com",
+      pass: "bpsm hcvu dokt yqai",
+    },
+});
 
 const app = express();
 
@@ -11,11 +19,22 @@ app.use(bodyParser.json());
 app.use(cors());
 
 app.post('/ordercall', function (request, response) {
-    console.log('done')
     let body = request.body;
 
     function sendMail() {
-        return
+        async function main(text) {
+            const info = await transporter.sendMail({
+              from: '<alexnikol092004@gmail.com>',
+              to: "nikol.alex06@mail.ru",
+              subject: "Заказ звонка",
+              text: text
+            });
+            console.log("Message sent: %s", info.messageId);
+        }
+
+        let mail = `имя: ${body.name};\nтелефон: ${body.tel};\nпродукт: ${body.product};\nВРЕМЯ: ${body.time};\nдополнительная информация: ${body.add}`
+        
+        main(mail).catch((e) => console.error(e));
     }
 
     function checkName() {
