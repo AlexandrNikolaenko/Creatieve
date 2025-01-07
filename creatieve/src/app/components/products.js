@@ -27,10 +27,10 @@ export default function Products() {
     }, [showId]);
 
     return(
-        <section id="2" className="shadow-section relative z-40 bg-base-color py-14 max-[1100px]:py-10">
-            <div className="wrapper flex flex-col gap-y-14 max-[1100px]:gap-y-[30px] items-center">
-                <h4 className="text-white font-base text-4xl max-[1100px]:text-3xl text-center font-bold">Что мы предлагаем?</h4>
-                <div className="grid grid-cols-6 max-[1100px]:grid-cols-4 w-full gap-10 max-[1100px]:gap-5 justify-center items-center">
+        <section id="2" className="shadow-section relative z-40 bg-base-color py-14 max-laptop:py-10">
+            <div className="wrapper flex flex-col gap-y-14 max-laptop:gap-y-[30px] items-center">
+                <h4 className="text-white font-base text-4xl max-laptop:text-3xl max-tablet:text-2xl text-center font-bold">Что мы предлагаем?</h4>
+                <div className="grid grid-cols-6 max-laptop:grid-cols-4 w-full gap-10 max-laptop:gap-5 justify-center items-center">
                     {products.map(product => <ProductBlock product={product} key={product.id} changer={setShowId}/>)}
                 </div>
                 <OrderButton />
@@ -78,7 +78,7 @@ function SlideButton({changeId, current}) {
 function ProductTitle({product}){
     return (
         <li id={`title${product.id}`}>
-            <h3 className="font-base font-bold text-4xl max-[1100px]:text-3xl text-white">{product.name}</h3>
+            <h3 className="font-base font-bold text-4xl max-laptop:text-3xl max-tablet:text-2xl text-white">{product.name}</h3>
         </li>
     )
 }
@@ -94,19 +94,19 @@ function DescProductBlock({product}) {
             <div className="bg-white w-[3px] rounded" id={`block${product.id}`}></div>
             <li className={`flex gap-x-12`} style={{width: getWidth() + 'px'}}>
                 <div className="flex flex-col gap-y-[30px] w-max">
-                    <p className="text-white font-base text-base max-[1100px]:text-sm text-nowrap">стоимость услуги от <span className="font-ital text-xl max-[1100px]:text-lg italic">{product.cost}</span></p>
-                    <p className="text-white font-base text-base max-[1100px]:text-sm text-nowrap">срок реализации от <span className="font-ital text-xl max-[1100px]:text-lg italic">{product.time} дней</span></p>
+                    <p className="text-white font-base text-base max-laptop:text-sm max-tablet:text-xs text-nowrap">стоимость услуги от <span className="font-ital text-xl max-laptop:text-lg max-tablet:text-base italic">{product.cost}</span></p>
+                    <p className="text-white font-base text-base max-laptop:text-sm max-tablet:text-xs text-nowrap">срок реализации от <span className="font-ital text-xl max-laptop:text-lg max-tablet:text-base italic">{product.time} дней</span></p>
                     <div className="flex flex-col gap-y-2">
-                        <p className="text-white font-base text-base max-[1100px]:text-sm text-nowrap">примеры:</p>
+                        <p className="text-white font-base text-base max-laptop:text-sm max-tablet:text-xs text-nowrap">примеры:</p>
                         <ul className="flex flex-col gap-y-2">
                             {product.examples.map(example => <li key={example.id} className="text-white list-disc text-nowrap">{example.name}</li>)}
                         </ul>
                     </div>
                 </div>
                 <div className="flex flex-col gap-y-5">
-                    <h5 className="text-white font-ital text-2xl max-[1100px]:text-xl italic">Что это?</h5>
-                    <p className="text-white text-base max-[1100px]:text-sm">{product.fullDesc}</p>
-                    <h5 className="text-white font-ital text-2xl max-[1100px]:text-xl italic">Дополнительно</h5>
+                    <h5 className="text-white font-ital text-2xl max-laptop:text-xl max-tablet:text-lg italic">Что это?</h5>
+                    <p className="text-white text-base max-laptop:text-sm max-tablet:text-xs">{product.fullDesc}</p>
+                    <h5 className="text-white font-ital text-2xl max-laptop:text-xl max-tablet:text-lg italic">Дополнительно</h5>
                     <ul className="leading-relaxed">
                         {product.add.map(service => <li key={service.id} className="text-white list-disc">{service.service} <span>{service.price}</span></li>)}
                     </ul>
@@ -128,11 +128,11 @@ function ProductBlock({product, changer}) {
     }
 
     return (
-        <button onClick={scroller} className={`productBlock text-left flex flex-col h-full gap-y-6  transition-all *:hover:text-white ${product.activeBg} cursor-pointer p-8 shadow-base rounded-[10px] ${product.id == 4 ? 'col-start-3 max-[1100px]:col-start-auto' : ''} col-span-2`}>
-            <h4 className="text-active-base font-base text-2xl max-[1100px]:text-xl font-bold transition-all">{product.name}</h4>
-            <p className="text-bright font-base text-base  max-[1100px]:text-sm transition-all">от <span className="text-inherit text-xl max-[1100px]:text-lg">{product.cost}</span></p>
-            <p className="text-active-base font-base text-base max-[1200px]:text-sm transition-all">срок реализации от <span className="text-inherit text-xl max-[1200px]:text-lg">{product.time} дней</span></p>
-            <p className="text-dark text-sm max-[1100px]:text-xs transition-all">{product.description}</p>
+        <button onClick={scroller} className={`productBlock text-left flex flex-col h-full gap-y-6 max-laptop:gap-y-5 max-tablet:gap-y-4 transition-all *:hover:text-white ${product.activeBg} cursor-pointer p-8 shadow-base rounded-[10px] ${product.id == 4 ? 'col-start-3 max-laptop:col-start-auto' : ''} col-span-2`}>
+            <h4 className="text-active-base font-base text-2xl max-laptop:text-xl max-tablet:text-lg font-bold transition-all">{product.name}</h4>
+            <p className="text-bright font-base text-base  max-laptop:text-sm max-tablet:text-xs transition-all">от <span className="text-inherit text-xl max-laptop:text-lg">{product.cost}</span></p>
+            <p className="text-active-base font-base text-base max-desktop:text-sm max-tablet:text-xs transition-all">срок реализации от <span className="text-inherit text-xl max-desktop:text-lg">{product.time} дней</span></p>
+            <p className="text-dark text-sm max-laptop:text-xs transition-all">{product.description}</p>
         </button>
     )
 }

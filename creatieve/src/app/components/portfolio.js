@@ -28,13 +28,13 @@ let works = [
 
 export default function Portfolio() {
     return (
-        <section id="4" className="bg-dark-base w-full py-14 max-[1100px]:py-10 relative z-40">
+        <section id="4" className="bg-dark-base w-full py-14 max-laptop:py-10 relative z-40">
             <div className="flex flex-col gap-y-10 wrapper items-center">
                 <div className="flex flex-col gap-y-5 items-center">
-                    <h3 className="text-white font-base text-4xl max-[1100px]:text-3xl text-center font-bold"><span className="text-bright">О качестве</span> наши <span className="text-bright">работы</span> говорят за нас</h3>
-                    <p className="text-2xl max-[1100px]:text-xl text-center text-white">представляем вам несколько наших проектов</p>
+                    <h3 className="text-white font-base text-4xl max-laptop:text-3xl max-tablet:text-2xl text-center font-bold"><span className="text-bright">О качестве</span> наши <span className="text-bright">работы</span> говорят за нас</h3>
+                    <p className="text-2xl max-laptop:text-xl max-tablet:text-base text-center text-white">представляем вам несколько наших проектов</p>
                 </div>
-                <ul className="flex flex-col gap-y-14">
+                <ul className="flex flex-col gap-y-14 max-laptop:gap-y-[30px] w-full">
                     {works.map(work => <Work key={work.id} work={work}/>)}
                 </ul>
             </div>
@@ -44,8 +44,8 @@ export default function Portfolio() {
 
 function Work({work}) {
     return (
-        <li className={`flex ${work.isReverse && 'flex-row-reverse'} max-[1100px]:flex-col-reverse gap-0 max-[1100px]:gap-5 items-center w-full`}>
-            <div className="w-1/2 max-[1100px]:w-full flex gap-5 max-[1100px]:max-w-[673px]">
+        <li className={`flex ${work.isReverse && 'flex-row-reverse'} max-laptop:flex-col-reverse gap-0 max-laptop:gap-5 items-center w-full`}>
+            <div className="w-1/2 max-laptop:w-full flex gap-5 max-laptop:max-w-[673px]">
                 <div className="w-[492px] h-[350px] overflow-y-scroll rounded-[10px]">
                     <img alt={work.title} className="w-full h-auto" src={work.urlImgDesk}></img>
                 </div>
@@ -53,9 +53,9 @@ function Work({work}) {
                     <img alt={work.title} className="w-full h-auto" src={work.urlImgMob}></img>
                 </div>
             </div>
-            <div className={`flex flex-col gap-7 ${work.isReverse ? 'pr-10' : 'pl-10'} max-[1100px]:p-0`}>
-                <h5 className="font-base text-white text-2xl font-bold">{work.title}</h5>
-                <p className="text-white text-xl">{work.desc}</p>
+            <div className={`flex flex-col gap-7 ${work.isReverse ? 'pr-10' : 'pl-10'} max-laptop:p-0`}>
+                <h5 className="font-base text-white text-2xl max-laptop:text-xl max-tablet:text-lg font-bold">{work.title}</h5>
+                <p className="text-white text-xl max-laptop:text-lg max-tablet:text-base">{work.desc}</p>
             </div>
         </li>
     )

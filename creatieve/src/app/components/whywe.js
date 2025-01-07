@@ -41,15 +41,15 @@ let stages = [
 
 export default function WhyWe() {
     return(
-        <section className="shadow-section relative z-40 bg-active-base py-14 max-[1100px]:py-10">
-            <div className="flex flex-col gap-14 max-[1100px]:gap-[30px] wrapper items-center">
-                <h3 className="uppercase font-base text-4xl max-[1100px]:text-3xl font-bold text-white">Почему <span className="text-bright">мы?</span></h3>
-                <div className="grid grid-cols-3 max-[1100px]:grid-cols-4 gap-10 max-[1100px]:gap-5">
+        <section className="shadow-section relative z-40 bg-active-base py-14 max-laptop:py-10">
+            <div className="flex flex-col gap-14 max-laptop:gap-[30px] wrapper items-center">
+                <h3 className="uppercase font-base text-4xl max-laptop:text-3xl max-tablet:text-2xl font-bold text-white">Почему <span className="text-bright">мы</span>?</h3>
+                <div className="grid grid-cols-3 max-laptop:grid-cols-4 gap-10 max-laptop:gap-5">
                     {reasons.map(reason => <ReasonBlock key={reason.id} reason={reason}/>)}
                 </div>
-                <h4 className="text-white text-3xl max-[1100px]:text-2xl font-base">Прозрачный процесс разработки</h4>
-                <ul className="relative flex flex-col gap-[30px] items-start">
-                    <div className="z-20 absolute border-dashed border-[3px] h-full left-[33px] max-[1100px]:left-7 border-bright"></div>
+                <h4 className="text-white text-3xl max-laptop:text-2xl max-tablet:text-xl font-base">Прозрачный процесс разработки</h4>
+                <ul className="relative flex flex-col gap-[30px] max-tablet:gap-5 items-start">
+                    <div className="z-20 absolute border-dashed border-[3px] h-full left-[33px] max-laptop:left-7 border-bright"></div>
                     {stages.map(stage => <Stage key={stage.id} stage={stage}/>)}
                 </ul>
             </div>
@@ -59,23 +59,23 @@ export default function WhyWe() {
 
 function ReasonBlock({reason}) {
     return(
-        <div className={`p-[25px] bg-dark-base flex flex-col gap-y-10 rounded-[10px] shadow-base col-span-1 max-[1100px]:col-span-2 ${reason.id == 3 && 'max-[1100px]:col-start-2'}`}>
+        <div className={`p-[25px] bg-dark-base flex flex-col gap-y-10 max-laptop:gap-y-5 rounded-[10px] shadow-base col-span-1 max-laptop:col-span-2 ${reason.id == 3 && 'max-laptop:col-start-2'}`}>
             <div className="flex items-start gap-2">
-                <span className="text-white text-3xl max-[1100px]:text-2xl font-base">{reason.id}.</span>
-                <h4 className="text-white text-3xl max-[1100px]:text-2xl font-base">{reason.title}</h4>
+                <span className="text-white text-3xl max-laptop:text-2xl max-tablet:text-xl font-base">{reason.id}.</span>
+                <h4 className="text-white text-3xl max-laptop:text-2xl max-tablet:text-xl font-base">{reason.title}</h4>
             </div>
-            <p className="text-white text-xl max-[1100px]:text-lg">{reason.desc}</p>
+            <p className="text-white text-xl max-laptop:text-lg max-tablet:text-base">{reason.desc}</p>
         </div>
     )
 }
 
 function Stage({stage}) {
     return (
-        <li className="relative z-30 flex gap-14 max-[1100px]:gap-5 items-center">
-            <div className="flex justify-center items-center w-[70px] max-[1100px]:w-[60px] h-[70px] max-[1100px]:h-[60px] rounded-full bg-bright">
-                <span className="text-white font-base text-4xl max-[1100px]:text-3xl">{stage.id}</span>
+        <li className="relative z-30 flex gap-14 max-laptop:gap-5 items-center">
+            <div className="flex justify-center items-center w-[70px] max-laptop:w-[60px] h-[70px] max-laptop:h-[60px] rounded-full bg-bright">
+                <span className="text-white font-base text-4xl max-laptop:text-3xl max-tablet:text-2xl">{stage.id}</span>
             </div>
-            <p className="text-white font-base text-2xl max-[1100px]:text-xl">{stage.text}</p>
+            <p className="text-white font-base text-2xl max-laptop:text-xl max-tablet:text-base">{stage.text}</p>
         </li>
     )
 }

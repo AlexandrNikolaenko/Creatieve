@@ -38,6 +38,12 @@ export default {
         'base': '0 0 8px rgba(0, 0, 0, 0.25)',
         'section': '0 -8px 10px rgba(0, 0, 0, 0.1)',
         'inner': 'inset 0 0 10px rgba(0, 0, 0, 0.1)'
+      },
+      screens: {
+        'mobile': '400px',
+        'tablet': '720px',
+        'laptop': '1100px',
+        'desktop': '1200px'
       }
     },
   },
