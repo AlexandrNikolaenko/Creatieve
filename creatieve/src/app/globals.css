@@ -73,6 +73,12 @@ html::-webkit-scrollbar, body::-webkit-scrollbar{
   }
 }
 
+@media screen and (max-width: 600px) {
+  .wrapper {
+    margin: 0 10px;
+  }
+}
+
 @media screen and (min-width: 1440px) {
   .wrapper {
     margin: 0 auto;

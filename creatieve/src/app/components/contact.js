@@ -58,10 +58,10 @@ export default function Contact () {
 
     return (
         <section id="5" className="shadow-section bg-white py-14 max-laptop:py-10 min-h-screen">
-            <div className="wrapper flex flex-col gap-y-14 items-center">
+            <div className="wrapper flex flex-col gap-y-14 max-laptop:gap-y-10 max-mobile:gap-y-[30px] items-center">
                 <div className="flex gap-10 flex-row max-laptop:gap-[30xp] max-[862px]:gap-5 max-[740px]:flex-col items-center">
-                    <p className="text-active-base font-base text-4xl max-laptop:text-[28px] max-[862px]:text-2xl"><span className="text-bright font-attention">Свяжитесь с нами</span>, если</p>
-                    <ul className="flex flex-col gap-y-5">
+                    <p className="text-active-base font-base text-4xl max-laptop:text-[28px] max-[862px]:text-2xl max-mobile:text-xl"><span className="text-bright font-attention">Свяжитесь с нами</span>, если</p>
+                    <ul className="flex flex-col gap-y-5 max-mobile:gap-y-3">
                         {reasons.map(reason => <Reason key={reason.id} reason={reason}/>)}
                     </ul>
                 </div>
@@ -73,7 +73,7 @@ export default function Contact () {
                                 {fields.map(field => <InputField field={field} key={field.id}/>)}
                                 {error != null && <label className="text-red-600 text-base max-laptop:text-sm">{error}</label>}
                             </div>
-                            <textarea name="add" placeholder="Напишите, если есть, что дополнить" className="border-2 outline-none rounded-[10px] h-full min-h-[260px] px-5 py-4 border-base-color active:border-active-base focus:border-active-base placeholder:font-base"></textarea>
+                            <textarea name="add" placeholder="Напишите, если есть, что дополнить" className="border-2 outline-none rounded-[10px] h-full min-h-[260px] max-small:min-h-[160px] px-5 max-mobile:px-4 py-4 max-mobile:py-3 border-base-color active:border-active-base focus:border-active-base placeholder:font-base"></textarea>
                         </div>
                         <BrightButton text={'Заказать звонок'}/>
                     </form>
@@ -90,7 +90,7 @@ export default function Contact () {
 }
 
 function InputField ({field}) {
-    let className = "border-2 outline-none bg-white active:bg-white focus:bg-white rounded-[10px] px-5 py-4 border-base-color active:border-active-base focus:border-active-base placeholder:font-base placeholder:text-base";
+    let className = "border-2 outline-none bg-white active:bg-white focus:bg-white rounded-[10px] px-5 max-mobile:px-4 py-4 max-mobile:py-3 border-base-color active:border-active-base focus:border-active-base placeholder:font-base placeholder:text-base";
 
     if (field.name != 'time') {
         return (

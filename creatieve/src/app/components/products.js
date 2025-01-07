@@ -29,8 +29,8 @@ export default function Products() {
     return(
         <section id="2" className="shadow-section relative z-40 bg-base-color py-14 max-laptop:py-10">
             <div className="wrapper flex flex-col gap-y-14 max-laptop:gap-y-[30px] items-center">
-                <h4 className="text-white font-base text-4xl max-laptop:text-3xl max-tablet:text-2xl text-center font-bold">Что мы предлагаем?</h4>
-                <div className="grid grid-cols-6 max-laptop:grid-cols-4 w-full gap-10 max-laptop:gap-5 justify-center items-center">
+                <h4 className="text-white font-base text-4xl max-laptop:text-3xl max-tablet:text-2xl max-small:text-[22px] text-center font-bold">Что мы предлагаем?</h4>
+                <div className="grid max-mobile:flex flex-col grid-cols-6 max-laptop:grid-cols-4 w-full gap-10 max-laptop:gap-5 justify-center items-center">
                     {products.map(product => <ProductBlock product={product} key={product.id} changer={setShowId}/>)}
                 </div>
                 <OrderButton />
@@ -78,7 +78,7 @@ function SlideButton({changeId, current}) {
 function ProductTitle({product}){
     return (
         <li id={`title${product.id}`}>
-            <h3 className="font-base font-bold text-4xl max-laptop:text-3xl max-tablet:text-2xl text-white">{product.name}</h3>
+            <h3 className="font-base font-bold text-4xl max-laptop:text-3xl max-tablet:text-2xl max-small:text-xl text-white">{product.name}</h3>
         </li>
     )
 }
@@ -128,7 +128,7 @@ function ProductBlock({product, changer}) {
     }
 
     return (
-        <button onClick={scroller} className={`productBlock text-left flex flex-col h-full gap-y-6 max-laptop:gap-y-5 max-tablet:gap-y-4 transition-all *:hover:text-white ${product.activeBg} cursor-pointer p-8 shadow-base rounded-[10px] ${product.id == 4 ? 'col-start-3 max-laptop:col-start-auto' : ''} col-span-2`}>
+        <button onClick={scroller} className={`productBlock text-left flex flex-col h-full gap-y-6 max-laptop:gap-y-5 max-tablet:gap-y-4 transition-all *:hover:text-white ${product.activeBg} cursor-pointer p-[25px] max-tablet:p-5 shadow-base rounded-[10px] ${product.id == 4 ? 'col-start-3 max-laptop:col-start-auto' : ''} col-span-2`}>
             <h4 className="text-active-base font-base text-2xl max-laptop:text-xl max-tablet:text-lg font-bold transition-all">{product.name}</h4>
             <p className="text-bright font-base text-base  max-laptop:text-sm max-tablet:text-xs transition-all">от <span className="text-inherit text-xl max-laptop:text-lg">{product.cost}</span></p>
             <p className="text-active-base font-base text-base max-desktop:text-sm max-tablet:text-xs transition-all">срок реализации от <span className="text-inherit text-xl max-desktop:text-lg">{product.time} дней</span></p>

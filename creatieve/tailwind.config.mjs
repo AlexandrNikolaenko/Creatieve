@@ -40,7 +40,8 @@ export default {
         'inner': 'inset 0 0 10px rgba(0, 0, 0, 0.1)'
       },
       screens: {
-        'mobile': '400px',
+        'small': '400px',
+        'mobile': '600px',
         'tablet': '720px',
         'laptop': '1100px',
         'desktop': '1200px'
