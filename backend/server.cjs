@@ -7,8 +7,6 @@ const toml = require('toml');
 
 const config = toml.parse(fs.readFileSync('./config.toml', 'utf-8'));
 
-console.log(config.gmail.emailkey);
-
 const transporter = nodemailer.createTransport({
     host: 'smtp.gmail.com',
     port: 465,
