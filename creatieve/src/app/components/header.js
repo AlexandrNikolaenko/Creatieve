@@ -46,7 +46,7 @@ export default function Header() {
             <div className="flex justify-between wrapper flex-row items-center">
                 <Link href="/#" className="flex gap-x-2 flex-row h-full items-center">
                     <Image alt="Logo" src={'/Logo.svg'} width={15} height={35.5}/>
-                    <h5 className="text-base font-attention uppercase text-dark-base">Crea<span className="text-bright">tie</span>ve</h5>
+                    <h5 className="text-base max-[1100px]:text-sm font-attention uppercase text-dark-base">Crea<span className="text-bright">tie</span>ve</h5>
                 </Link>
                 <nav className="flex gap-x-7">
                     <HeaderButton text={'О нас'} blockId={1} />
@@ -61,7 +61,7 @@ export default function Header() {
 
 function HeaderButton({text, blockId}){       
     return (
-        <button className="uppercase py-[21px] font-base text-dark" onClick={() => scrollToBlock(blockId)}>
+        <button className="uppercase py-[21px] font-base text-base max-[1100px]:text-sm text-dark" onClick={() => scrollToBlock(blockId)}>
             {text}
         </button>
     )

@@ -27,7 +27,7 @@ export default function Products() {
     }, [showId]);
 
     return(
-        <section id="2" className="shadow-section relative z-40 bg-base-color py-14">
+        <section id="2" className="shadow-section relative z-40 bg-base-color py-14 max-[1100px]:py-10">
             <div className="wrapper flex flex-col gap-y-14 max-[1100px]:gap-y-[30px] items-center">
                 <h4 className="text-white font-base text-4xl max-[1100px]:text-3xl text-center font-bold">Что мы предлагаем?</h4>
                 <div className="grid grid-cols-6 max-[1100px]:grid-cols-4 w-full gap-10 max-[1100px]:gap-5 justify-center items-center">
