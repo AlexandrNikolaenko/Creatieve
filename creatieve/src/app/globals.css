@@ -54,12 +54,8 @@ input, textarea, select {
   appearance: none;
 }
 
-*::-webkit-scrollbar, ::-moz-scrollbar{
+*::-webkit-scrollbar{
   display: none;
-}
-
-html::-webkit-scrollbar, body::-webkit-scrollbar, html::-moz-scrollbar, body::-moz-scrollbar{
-  display: initial;
 }
 
 .wrapper {
