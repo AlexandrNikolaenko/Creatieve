@@ -46,10 +46,10 @@ function Work({work}) {
     return (
         <li className={`flex ${work.isReverse && 'flex-row-reverse'} max-laptop:flex-col-reverse gap-0 max-laptop:gap-5 items-center w-full`}>
             <div className="w-1/2 max-laptop:w-full flex gap-5 max-mobile:gap-2.5 max-laptop:max-w-[673px]">
-                <div className="w-[492px] h-[350px] max-mobile:h-[268px] max-small:h-[186px] overflow-y-scroll rounded-[10px]">
+                <div className="w-[492px] h-[350px] max-mobile:h-[268px] max-[480px]:h-[227px] max-small:h-[186px] overflow-y-scroll rounded-[10px]">
                     <img alt={work.title} className="w-full h-auto" src={work.urlImgDesk}></img>
                 </div>
-                <div className="w-[161px] h-[350px] max-mobile:h-[268px] max-small:h-[186px] overflow-y-scroll rounded-[10px]">
+                <div className="w-[161px] h-[350px] max-mobile:h-[268px] max-[480px]:h-[227px] max-small:h-[186px] overflow-y-scroll rounded-[10px]">
                     <img alt={work.title} className="w-full h-auto" src={work.urlImgMob}></img>
                 </div>
             </div>

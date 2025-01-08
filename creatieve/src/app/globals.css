@@ -54,11 +54,11 @@ input, textarea, select {
   appearance: none;
 }
 
-*::-webkit-scrollbar{
+*::-webkit-scrollbar, ::-moz-scrollbar{
   display: none;
 }
 
-html::-webkit-scrollbar, body::-webkit-scrollbar{
+html::-webkit-scrollbar, body::-webkit-scrollbar, html::-moz-scrollbar, body::-moz-scrollbar{
   display: initial;
 }
 

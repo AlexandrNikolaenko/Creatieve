@@ -8,6 +8,7 @@ import { products } from "./optData";
 
 export default function Products() {
     let [showId, setShowId] = useState(1);
+    let [isOpen, setIsOpen] = useState(false);
 
     useEffect(() => {
         let slideProd = document.getElementById("slideProd");
@@ -34,22 +35,25 @@ export default function Products() {
                     {products.map(product => <ProductBlock product={product} key={product.id} changer={setShowId}/>)}
                 </div>
                 <OrderButton />
-                <div id="block" className="flex flex-col w-full gap-y-5 rounded-[20px] shadow-inner p-5">
+                <div id="block" className="flex flex-col w-full gap-y-5 rounded-[20px] max-laptop:rounded-none shadow-inner max-laptop:shadow-none p-5 max-laptop:p-0">
                     <div className="flex justify-between px-5">
                         <div id="slideName"  className="h-[45px] overflow-y-hidden relative">
                             <ul id="nameLine" className="flex flex-col gap-3">
                                 {products.map(product => <ProductTitle product={product} key={product.id}/>)}
                             </ul>
                         </div>
-                        <SlideButton changeId={setShowId} current={showId}/>
+                        {window.innerWidth >= 521 && <SlideButton changeId={setShowId} current={showId}/>}
                     </div>  
                     <div id="slideProd" className="w-full overflow-x-hidden relative">
-                        <ul id="blockLine" className="flex gap-x-10 w-max">
+                        <ul id="blockLine" className="flex gap-x-5 w-max">
                             {products.map(product => <DescProductBlock product={product} key={product.id}/>)}
                             <div className="bg-white w-[3px] rounded"></div>
                         </ul>
                     </div>
-                    <OrderButton />        
+                    <div className="flex w-full justify-between items-center max-[350px]:flex-col-reverse gap-3">
+                        <OrderButton />        
+                        {window.innerWidth < 521 && <SlideButton changeId={setShowId} current={showId}/>}
+                    </div>
                 </div>
             </div>
         </section>
@@ -58,7 +62,7 @@ export default function Products() {
 
 function SlideButton({changeId, current}) {
     return (
-        <div className={`slideButton overflow-hidden rounded-[10px] bg-active-base`}>
+        <div className={`slideButton overflow-hidden rounded-[10px] h-min bg-active-base`}>
             <button onClick={() => {
                 if (current > 1) changeId(current - 1);
                 else changeId(products.length);
@@ -84,21 +88,30 @@ function ProductTitle({product}){
 }
 
 function DescProductBlock({product}) {
+    let width = document.documentElement.clientWidth;
+    console.log(width)
     function getWidth() {
-        if (window.innerWidth <= 1400) return window.innerWidth - 166
-        else return 1360 - 126
+        if (width <= 1440) {
+            if (width >= 1100) {
+                return width - 166
+            } else if (width >= 600) {
+                return width - 86
+            } else {
+                return width - 66
+            }
+        } else return 1360 - 86
     }
 
     return (
         <>
             <div className="bg-white w-[3px] rounded" id={`block${product.id}`}></div>
-            <li className={`flex gap-x-12`} style={{width: getWidth() + 'px'}}>
+            <li className={`flex gap-x-12 max-tablet:flex-col`} style={{width: getWidth() + 'px'}}>
                 <div className="flex flex-col gap-y-[30px] w-max">
                     <p className="text-white font-base text-base max-laptop:text-sm max-tablet:text-xs text-nowrap">стоимость услуги от <span className="font-ital text-xl max-laptop:text-lg max-tablet:text-base italic">{product.cost}</span></p>
                     <p className="text-white font-base text-base max-laptop:text-sm max-tablet:text-xs text-nowrap">срок реализации от <span className="font-ital text-xl max-laptop:text-lg max-tablet:text-base italic">{product.time} дней</span></p>
                     <div className="flex flex-col gap-y-2">
                         <p className="text-white font-base text-base max-laptop:text-sm max-tablet:text-xs text-nowrap">примеры:</p>
-                        <ul className="flex flex-col gap-y-2">
+                        <ul className="flex flex-col gap-y-2 list-inside">
                             {product.examples.map(example => <li key={example.id} className="text-white list-disc text-nowrap">{example.name}</li>)}
                         </ul>
                     </div>
@@ -107,7 +120,7 @@ function DescProductBlock({product}) {
                     <h5 className="text-white font-ital text-2xl max-laptop:text-xl max-tablet:text-lg italic">Что это?</h5>
                     <p className="text-white text-base max-laptop:text-sm max-tablet:text-xs">{product.fullDesc}</p>
                     <h5 className="text-white font-ital text-2xl max-laptop:text-xl max-tablet:text-lg italic">Дополнительно</h5>
-                    <ul className="leading-relaxed">
+                    <ul className="leading-relaxed list-inside">
                         {product.add.map(service => <li key={service.id} className="text-white list-disc">{service.service} <span>{service.price}</span></li>)}
                     </ul>
                 </div>
