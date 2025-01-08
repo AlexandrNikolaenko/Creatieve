@@ -8,7 +8,6 @@ import { products } from "./optData";
 
 export default function Products() {
     let [showId, setShowId] = useState(1);
-    let [isOpen, setIsOpen] = useState(false);
 
     useEffect(() => {
         let slideProd = document.getElementById("slideProd");
@@ -89,7 +88,6 @@ function ProductTitle({product}){
 
 function DescProductBlock({product}) {
     let width = document.documentElement.clientWidth;
-    console.log(width)
     function getWidth() {
         if (width <= 1440) {
             if (width >= 1100) {

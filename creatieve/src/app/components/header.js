@@ -12,21 +12,25 @@ export default function Header() {
     let lastTimeout = useRef([]);
 
     screen.addEventListener("orientationchange", location.reload);
+
+    function hidder() {
+        let timeout = setTimeout(() => setIsHidden(true), 2000);
+        if (position.current >= window.scrollY) {
+            lastTimeout.current.forEach(time => clearTimeout(time));
+            lastTimeout.current = []
+            clearTimeout(timeout);
+            setIsHidden(false);
+            if (window.scrollY != 0) timeout = setTimeout(() => setIsHidden(true), 2000);
+        }
+        if (window.scrollY != 0) setIsShadow(true);
+        else setIsShadow(false);
+        lastTimeout.current = lastTimeout.current.concat([timeout]);
+        position.current = window.scrollY; 
+    }
     
     useEffect(() => {
         window.onscroll = function() {
-            let timeout = setTimeout(() => setIsHidden(true), 2000);
-            if (position.current >= window.scrollY) {
-                lastTimeout.current.forEach(time => clearTimeout(time));
-                lastTimeout.current = []
-                clearTimeout(timeout);
-                setIsHidden(false);
-                if (window.scrollY != 0) timeout = setTimeout(() => setIsHidden(true), 2000);
-            }
-            if (window.scrollY != 0) setIsShadow(true);
-            else setIsShadow(false);
-            lastTimeout.current = lastTimeout.current.concat([timeout]);
-            position.current = window.scrollY; 
+            hidder();
         }
     })
 
