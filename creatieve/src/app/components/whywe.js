@@ -41,7 +41,7 @@ let stages = [
 
 export default function WhyWe() {
     return(
-        <section className="shadow-section relative z-40 bg-active-base py-14 max-laptop:py-10">
+        <section className="shadow-section min-h-screen relative z-40 bg-active-base py-14 max-laptop:py-10">
             <div className="flex flex-col gap-14 max-laptop:gap-[30px] wrapper items-center">
                 <h3 className="uppercase font-base text-4xl max-laptop:text-3xl max-tablet:text-2xl max-small:text-[22px] font-bold text-white">Почему <span className="text-bright">мы</span>?</h3>
                 <div className="grid max-mobile:flex max-mobile:flex-col grid-cols-3 max-laptop:grid-cols-4 gap-10 max-laptop:gap-5">

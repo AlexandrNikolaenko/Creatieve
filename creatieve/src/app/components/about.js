@@ -5,7 +5,7 @@ import scrollToBlock, { sectionsId } from "./optData";
 
 export default function About() {
     return (
-        <section id="1" className="h-screen max-desktop:h-auto max-mobile:h-screen pt-0 max-desktop:pt-[140px] max-mobile:pt-[70px] pb-0 max-desktop:pb-[60px] wrapper flex flex-col items-center justify-center gap-14 max-laptop:gap-10">
+        <section id="1" className="h-screen max-desktop:h-auto min-h-screen max-mobile:h-screen pt-0 max-desktop:pt-[140px] max-mobile:pt-[70px] pb-0 max-desktop:pb-[60px] wrapper flex flex-col items-center justify-center gap-14 max-laptop:gap-10">
             <div className="grid grid-cols-2 max-desktop:flex flex-col items-center gap-16 max-laptop:gap-10px">
                 <div className="flex flex-col gap-y-14 max-laptop:gap-y-10 max-tablet:gap-y-[30px]">
                     <h3 className="text-base-color font-bold font-base text-2xl max-laptop:text-xl max-tablet:text-lg max-small:text-base">Нужен сайт или веб-приложение?<br/>

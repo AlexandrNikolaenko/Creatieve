@@ -28,7 +28,7 @@ let works = [
 
 export default function Portfolio() {
     return (
-        <section id="4" className="bg-dark-base w-full py-14 max-laptop:py-10 relative z-40">
+        <section id="4" className="bg-dark-base min-h-screen w-full py-14 max-laptop:py-10 relative z-40 shadow-section">
             <div className="flex flex-col gap-y-10 wrapper items-center">
                 <div className="flex flex-col gap-y-5 items-center">
                     <h3 className="text-white font-base text-4xl max-laptop:text-3xl max-tablet:text-2xl max-small:text-text-[22px] text-center font-bold"><span className="text-bright">О качестве</span> наши <span className="text-bright">работы</span> говорят за нас</h3>

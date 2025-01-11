@@ -8,6 +8,7 @@ import { products } from "./optData";
 
 export default function Products() {
     let [showId, setShowId] = useState(1);
+    let scrollFunc = useRef(setShowId);
 
     useEffect(() => {
         let slideProd = document.getElementById("slideProd");
@@ -27,7 +28,7 @@ export default function Products() {
     }, [showId]);
 
     return(
-        <section id="2" className="shadow-section relative z-40 bg-base-color py-14 max-laptop:py-10">
+        <section id="2" className="min-h-screen shadow-section relative z-40 bg-base-color py-14 max-laptop:py-10">
             <div className="wrapper flex flex-col gap-y-14 max-laptop:gap-y-[30px] items-center">
                 <h4 className="text-white font-base text-4xl max-laptop:text-3xl max-tablet:text-2xl max-small:text-[22px] text-center font-bold">Что мы предлагаем?</h4>
                 <div className="grid max-mobile:flex flex-col grid-cols-6 max-laptop:grid-cols-4 w-full gap-10 max-laptop:gap-5 justify-center items-center">
