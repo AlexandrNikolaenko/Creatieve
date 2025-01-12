@@ -30,7 +30,12 @@ export default function Header() {
     
     useEffect(() => {
         window.onscroll = function() {
-            hidder();
+            if (!isOpen) {
+                hidder();
+            } else {
+                setIsHidden(false);
+                setIsShadow(false);
+            }
         }
     })
 
@@ -64,24 +69,32 @@ export default function Header() {
                         <HeaderButton text={'Заказать'} blockId={5} />
                     </nav>
                     :
-                    <div className="py-2.5 transition-all duration-300 active:rotate-180" onClick={() => setIsOpen(!isOpen)}>
+                    <div className="py-2.5 transition-all duration-300 active:rotate-180" onClick={() => {
+                        if (!isOpen) {
+                            lastTimeout.current.forEach(time => clearTimeout(time));
+                        } else {
+                            let timeout = setTimeout(() => setIsHidden(true), 2000);
+                            lastTimeout.current = lastTimeout.current.concat([timeout]);
+                        }
+                        setIsOpen(!isOpen);
+                        }}>
                         <Image alt="menu" width={20} height={20} src={!isOpen ? '/menu.svg' : '/close.svg'}/>
                     </div>
                     }
                 </div>
             </header>
             {window.innerWidth < 530 && 
-            <nav className={`fixed top-0 left-0 transition-all bg-white h-screen px-[10px] pt-16 flex flex-col gap-y-3 ${!isOpen && '-translate-x-full'}`} style={{width: window.innerWidth / 2 + 'px'}}>
-                <HeaderButton text={'О нас'} blockId={1} />
-                <HeaderButton text={'Цены'} blockId={2} />
-                <HeaderButton text={'Портфолио'} blockId={4} />
-                <HeaderButton text={'Заказать'} blockId={5} />
+            <nav className={`fixed z-[45] top-0 left-0 transition-all bg-white h-screen px-[10px] pt-16 flex flex-col gap-y-3 ${!isOpen && '-translate-x-full'}`} style={{width: window.innerWidth / 2 + 'px'}}>
+                <HeaderButton text={'О нас'} blockId={1} action={() => setIsOpen(!isOpen)}/>
+                <HeaderButton text={'Цены'} blockId={2} action={() => setIsOpen(!isOpen)}/>
+                <HeaderButton text={'Портфолио'} blockId={4} action={() => setIsOpen(!isOpen)}/>
+                <HeaderButton text={'Заказать'} blockId={5} action={() => setIsOpen(!isOpen)}/>
             </nav>}
         </>
     )
 }
 
-function HeaderButton({text, blockId}){     
+function HeaderButton({text, blockId, action}){     
     // let [isActive, setIsActive] = useState(document.getElementById(toString(blockId)));
     // let h = window.innerHeight;
     // let block = document.getElementById(toString(blockId))
@@ -104,7 +117,12 @@ function HeaderButton({text, blockId}){
     // )
 
     return (
-        <button className={`uppercase py-[21px] max-tablet:py-[18px] font-base transition-all duration-300 text-base max-laptop:text-sm max-tablet:text-xs text-dark hover:text-active-base active:text-active-base`} onClick={() => scrollToBlock(blockId)}>
+        <button className={`uppercase py-[21px] max-tablet:py-[18px] font-base transition-all duration-300 text-base max-laptop:text-sm max-tablet:text-xs text-dark hover:text-active-base active:text-active-base`} onClick={() => {
+            scrollToBlock(blockId);
+            if (action) {
+                action();
+            }
+        }}>
             {text}
         </button>
     )

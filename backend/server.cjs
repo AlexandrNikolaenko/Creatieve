@@ -4,6 +4,7 @@ const bodyParser = require('body-parser');
 const nodemailer = require("nodemailer");
 const fs = require('fs');
 const toml = require('toml');
+const { error } = require('console');
 
 const config = toml.parse(fs.readFileSync('./config.toml', 'utf-8'));
 
@@ -57,12 +58,14 @@ app.post('/ordercall', function (request, response) {
     }
 
     if (checkName() && checkTel()) {
-        sendMail();
+        console.log('Mail is sent')
+        // sendMail();
         response.status(200);
-    } else if (checkName()) {
+        response.send({error: null});
+    } else if (!checkName() && checkTel()) {
         response.status(400);
         response.send({error: 'Имя не должно содержать цифры или специальные символы'});
-    } else if (checkTel()) {
+    } else if (checkName() && !checkTel()) {
         response.status(400);
         response.send({error: 'Поле телефон заполнено некорректно'});
     } else {

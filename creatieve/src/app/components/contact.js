@@ -27,9 +27,11 @@ let reasons = [
 export default function Contact () {
     let [error, setError] = useState(null);
     let [isSuccess, setIsSuccess] = useState([false, null]);
+    console.log(error, isSuccess);
 
     async function sendFormData(e) {
         e.preventDefault();
+        console.log('done');
         let formData = new FormData(document.getElementById('orderCallForm'));
         let body = JSON.stringify(Object.fromEntries(formData));
         let res = await fetch(`http://${host}:5000/ordercall`, {
@@ -39,12 +41,12 @@ export default function Contact () {
                 "Access-Control-Allow-Origin": "*"
             },
             body
-        });
+        })
         if (res.status == 200) {
+            console.log('done')
             setError(null);
             setIsSuccess([true, Object.fromEntries(formData).time]);
-        }
-        else {
+        } else {
             setIsSuccess([false, null]);
             let err = (await res.json()).error;
             if (err) {
@@ -53,7 +55,6 @@ export default function Contact () {
                 setError('Проверьте корректность заполнения полей')
             }
         }
-        
     }
 
     return (
@@ -66,7 +67,9 @@ export default function Contact () {
                     </ul>
                 </div>
                 <div className="flex items-center gap-10 max-laptop:gap-5 flex-row max-tablet:flex-col w-full">
-                    <form id='orderCallForm' className="flex w-full flex-col items-start max-tablet:items-center gap-y-5" onSubmit={(e) => sendFormData(e)}>
+                    <form id='orderCallForm' className="flex w-full flex-col items-start max-tablet:items-center gap-y-5" onSubmit={(e) => {
+                        console.log('done');
+                        sendFormData(e)}}>
                         {isSuccess[0] && <label className="text-landingfrom text-base max-laptop:text-sm max-tablet:text-xs">Вы заказали звонок на {isSuccess[1]}</label>}
                         <div className="grid grid-cols-2 max-laptop:grid-cols-1 w-full gap-5 max-laptop:gap-2.5">
                             <div className="flex flex-col gap-y-5 max-laptop:gap-y-2.5">

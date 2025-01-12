@@ -4,6 +4,7 @@ import { useRef, useEffect, useState } from "react";
 import Image from "next/image";
 import OrderButton from "./buttons";
 import { products } from "./optData";
+import Link from "next/link";
 
 
 export default function Products() {
@@ -104,23 +105,23 @@ function DescProductBlock({product}) {
     return (
         <>
             <div className="bg-white w-[3px] rounded" id={`block${product.id}`}></div>
-            <li className={`flex gap-x-12 max-tablet:flex-col`} style={{width: getWidth() + 'px'}}>
-                <div className="flex flex-col gap-y-[30px] w-max">
+            <li className={`flex gap-x-12 gap-y-5 max-tablet:flex-col`} style={{width: getWidth() + 'px'}}>
+                <div className="flex flex-col gap-y-[30px] max-tablet:gap-y-5 w-max">
                     <p className="text-white font-base text-base max-laptop:text-sm max-tablet:text-xs text-nowrap">стоимость услуги от <span className="font-ital text-xl max-laptop:text-lg max-tablet:text-base italic">{product.cost}</span></p>
                     <p className="text-white font-base text-base max-laptop:text-sm max-tablet:text-xs text-nowrap">срок реализации от <span className="font-ital text-xl max-laptop:text-lg max-tablet:text-base italic">{product.time} дней</span></p>
                     <div className="flex flex-col gap-y-2">
                         <p className="text-white font-base text-base max-laptop:text-sm max-tablet:text-xs text-nowrap">примеры:</p>
                         <ul className="flex flex-col gap-y-2 list-inside">
-                            {product.examples.map(example => <li key={example.id} className="text-white list-disc text-nowrap">{example.name}</li>)}
+                            {product.examples.map(example => <Link href={example.name} key={example.id} className="text-white text-base max-laptop:text-sm max-tablet:text-xs list-disc text-nowrap">{example.name}</Link>)}
                         </ul>
                     </div>
                 </div>
-                <div className="flex flex-col gap-y-5">
+                <div className="flex flex-col gap-y-5 max-tablet:gap-y-4">
                     <h5 className="text-white font-ital text-2xl max-laptop:text-xl max-tablet:text-lg italic">Что это?</h5>
                     <p className="text-white text-base max-laptop:text-sm max-tablet:text-xs">{product.fullDesc}</p>
                     <h5 className="text-white font-ital text-2xl max-laptop:text-xl max-tablet:text-lg italic">Дополнительно</h5>
                     <ul className="leading-relaxed list-inside">
-                        {product.add.map(service => <li key={service.id} className="text-white list-disc">{service.service} <span>{service.price}</span></li>)}
+                        {product.add.map(service => <li key={service.id} className="text-white text-base max-laptop:text-sm max-tablet:text-xs list-disc">{service.service} <span>{service.price}</span></li>)}
                     </ul>
                 </div>
             </li>

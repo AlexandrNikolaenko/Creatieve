@@ -24,6 +24,7 @@ export default function Footer() {
                 <div className="flex flex-col *:text-gray-500 col-span-2">
                     <Link href={'/#'}>Политика конфиденциальности</Link>
                     <p>Сайт не является публичной офертой</p>
+                    <Link href={'mailto:nikol.alex06@mail.ru'}>nikol.alex06@mail.ru</Link>
                 </div>
             </div>
         </footer>
